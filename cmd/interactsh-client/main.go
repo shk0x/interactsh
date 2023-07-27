@@ -199,7 +199,7 @@ func main() {
 				if noFilter || cliOptions.HTTPOnly {
 					builder.WriteString(fmt.Sprintf("[%s] Received HTTP interaction from %s at %s", interaction.FullId, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05")))
 					if cliOptions.Verbose {
-						builder.WriteString(fmt.Sprintf("\n------------\nHTTP Request\n------------\n\n%s\n\n-------------\nHTTP Response\n-------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
+						builder.WriteString(fmt.Sprintf("\nHTTP Request\n------------\n%s\n-------------\n", interaction.RawRequest, interaction.RawResponse))
 					}
 					writeOutput(outputFile, builder)
 				}
