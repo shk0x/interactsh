@@ -190,7 +190,7 @@ func main() {
 			case "dns":
 				if noFilter || cliOptions.DNSOnly {
 //					builder.WriteString(fmt.Sprintf("[%s] DNS (%s)\t%s\t%s", interaction.FullId, interaction.QType, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05")))
-					builder.WriteString(fmt.Sprintf(":globe_with_meridians: DNS %s   \t%s\t%s\t%s", interaction.QType, interaction.RemoteAddress, interaction.Timestamp.Format("02-01-2006 15:04"), interaction.FullId))
+					builder.WriteString(fmt.Sprintf(":globe_with_meridians: DNS (%s)\t%s\t%s\t%s", interaction.QType, interaction.RemoteAddress, interaction.Timestamp.Format("02-01-2006 15:04"), interaction.FullId))
 					if cliOptions.Verbose {
 						builder.WriteString(fmt.Sprintf("\n-----------\nDNS Request\n-----------\n\n%s\n\n------------\nDNS Response\n------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
 					}
@@ -199,7 +199,7 @@ func main() {
 			case "http":
 				if noFilter || cliOptions.HTTPOnly {
 //					builder.WriteString(fmt.Sprintf("[%s] Received HTTP interaction from %s at %s:\n%s", interaction.FullId, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05"), interaction.RawRequest))
-					builder.WriteString(fmt.Sprintf(":earth_americas: HTTP\t\t%s\t%s\t%s:\n%s", interaction.RemoteAddress, interaction.Timestamp.Format("02-01-2006 15:04"), interaction.FullId, interaction.RawRequest))
+					builder.WriteString(fmt.Sprintf(":earth_americas: HTTP\t%s\t%s\t%s:\n>GET / HTTP/1.1<", interaction.RemoteAddress, interaction.Timestamp.Format("02-01-2006 15:04"), interaction.FullId, interaction.RawRequest))
 
 					if cliOptions.Verbose {
 						builder.WriteString(fmt.Sprintf("\n------------\nHTTP Request\n------------\n\n%s\n\n-------------\nHTTP Response\n-------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
