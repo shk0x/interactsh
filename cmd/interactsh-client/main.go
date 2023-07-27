@@ -203,7 +203,6 @@ func main() {
 
 					if cliOptions.Verbose {
 						builder.WriteString(fmt.Sprintf("\n------------\nHTTP Request\n------------\n\n%s\n\n-------------\nHTTP Response\n-------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
-					}
 					writeOutput(outputFile, builder)
 				}
 			case "smtp":
