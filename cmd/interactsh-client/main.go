@@ -205,7 +205,7 @@ func main() {
 				modifiedResponse := modifiedResponse3
 				if noFilter || cliOptions.HTTPOnly {
 //					builder.WriteString(fmt.Sprintf("[%s] Received HTTP interaction from %s at %s:\n%s", interaction.FullId, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05"), interaction.RawRequest))
-					builder.WriteString(fmt.Sprintf(":earth_americas: [%s] (*%s*) %s (HTTP) ```%s```", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId, modifiedResponse))
+					builder.WriteString(fmt.Sprintf(":dart: [%s] (*%s*) %s (HTTP) ```%s```", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId, modifiedResponse))
 					//builder.WriteString(fmt.Sprintf(":earth_americas:2 [%s] (*%s*) %s (HTTP) ```POSTn```", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId))
 
 					if cliOptions.Verbose {
