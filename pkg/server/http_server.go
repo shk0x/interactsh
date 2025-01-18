@@ -56,8 +56,8 @@ func NewHTTPServer(options *Options) (*HTTPServer, error) {
 	// If a static directory is specified, also serve it.
 	if options.HTTPDirectory != "" {
 		abs, _ := filepath.Abs(options.HTTPDirectory)
-		gologger.Info().Msgf("Loading directory (%s) to serve from : %s/s/", abs, strings.Join(options.Domains, ","))
-		server.staticHandler = http.StripPrefix("/s/", disableDirectoryListing(http.FileServer(http.Dir(options.HTTPDirectory))))
+		gologger.Info().Msgf("Loading directory (%s) to serve from : %s/", abs, strings.Join(options.Domains, ","))
+		server.staticHandler = http.StripPrefix("/", disableDirectoryListing(http.FileServer(http.Dir(options.HTTPDirectory))))
 	}
 	// If custom index, read the custom index file and serve it.
 	// Supports {DOMAIN} placeholders.
