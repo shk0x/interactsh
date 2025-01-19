@@ -1,3 +1,9 @@
+```system/TOOLS# rm -rf interactsh/ ; rm -f ../../go/bin/interactsh-*
+system/TOOLS# git clone https://github.com/shk0x/interactsh ; cd interactsh
+system/TOOLS/interactsh# go clean -modcache ; go mod tidy ; go build -o interactsh-server ./cmd/interactsh-server ; go build -o interactsh-client ./cmd/interactsh-client
+system/TOOLS/interactsh# cp interactsh-* ../../../go/bin/
+# interact...
+``` 
 <h1 align="center">
   <br>
 <img src="https://user-images.githubusercontent.com/8293321/150756129-df9990c2-cdc0-4c6e-b3ae-3d17079968c5.png" width="200px" alt="Interactsh"></a>
