@@ -255,11 +255,16 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 
 	reflection := h.options.URLReflection(req.Host)
 	if stringsutil.HasPrefixI(req.URL.Path, "/") && h.staticHandler != nil {
+		fmt.Println("**********HasPrefixI**********")
 		h.staticHandler.ServeHTTP(w, req)
 	} else if req.URL.Path == "/" && reflection == "" {
+		fmt.Println("**********eq.URL.Path == / && reflection == **********")
+
 		if h.customBanner != "" {
+			fmt.Println("**********iffffffff**********")
 			fmt.Fprint(w, strings.ReplaceAll(h.customBanner, "{DOMAIN}", domain))
 		} else {
+			fmt.Println("**********else**********")
 			fmt.Fprintf(w, banner, domain)
 		}
 	} else if strings.EqualFold(req.URL.Path, "/robots.txt") {
@@ -271,6 +276,7 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 		fmt.Fprintf(w, "<data>%s</data>", reflection)
 		w.Header().Set("Content-Type", "application/xml")
 	} else {
+		fmt.Println("**********naranjaajaja**********")
 		if h.options.DynamicResp && len(req.URL.Query()) > 0 {
 			writeResponseFromDynamicRequest(w, req)
 			return
