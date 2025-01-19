@@ -254,7 +254,7 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	reflection := h.options.URLReflection(req.Host)
-	if stringsutil.HasPrefixI(req.URL.Path, "/s/") && h.staticHandler != nil {
+	if stringsutil.HasPrefixI(req.URL.Path, "/") && h.staticHandler != nil {
 		h.staticHandler.ServeHTTP(w, req)
 	} else if req.URL.Path == "/" && reflection == "" {
 		if h.customBanner != "" {
