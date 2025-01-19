@@ -42,7 +42,7 @@ func (l *noopLogger) Write(p []byte) (n int, err error) {
 func disableDirectoryListing(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "" {
-			fmt.Println("**********HasSuffix**********")
+			fmt.Println("**********URL.Path == "" **********")
 		}
 		if strings.HasSuffix(r.URL.Path, "/") {
 			fmt.Println("**********HasSuffix**********")
