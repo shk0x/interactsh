@@ -1,4 +1,4 @@
-module github.com/shk0x/interactsh
+module github.com/projectdiscovery/interactsh
 
 go 1.20
 
