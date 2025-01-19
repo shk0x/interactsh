@@ -41,7 +41,7 @@ func (l *noopLogger) Write(p []byte) (n int, err error) {
 // disableDirectoryListing disables directory listing on http.FileServer
 func disableDirectoryListing(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path == "" {
+		/*if r.URL.Path == "" {
 			fmt.Println("**********URL.Path ==  **********")
 		}
 		if strings.HasSuffix(r.URL.Path, "/") {
@@ -50,7 +50,7 @@ func disableDirectoryListing(next http.Handler) http.Handler {
 		if strings.HasSuffix(r.URL.Path, "/") || r.URL.Path == "" {
 			http.NotFound(w, r)
 			return
-		}
+		}*/
 		next.ServeHTTP(w, r)
 	})
 }
