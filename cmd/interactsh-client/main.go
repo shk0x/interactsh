@@ -198,7 +198,7 @@ func main() {
 					ip2country.Load("/home/hello/system/TOOLS/interactsh/dbip-country.csv")
 					println(ip2country.GetCountry("179.60.64.48"))
 					println("************************************************")
-					builder.WriteString(fmt.Sprintf(":globe_with_meridians: [%s] (:flag-%s: *%s*) %s (DNS %s)", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, ip2country.GetCountry(interaction.RemoteAddress), interaction.FullId, interaction.QType))
+					builder.WriteString(fmt.Sprintf(":globe_with_meridians: [%s] (:flag-%s: *%s*) %s (DNS %s)", interaction.Timestamp.Format("02/01/2006 15:04"), ip2country.GetCountry(interaction.RemoteAddress), interaction.RemoteAddress, interaction.FullId, interaction.QType))
 					if cliOptions.Verbose {
 						builder.WriteString(fmt.Sprintf("\n-----------\nDNS Request\n-----------\n\n%s\n\n------------\nDNS Response\n------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
 					}
@@ -213,7 +213,7 @@ func main() {
 				modifiedResponse := modifiedResponse3
 				if noFilter || cliOptions.HTTPOnly {
 //					builder.WriteString(fmt.Sprintf("[%s] Received HTTP interaction from %s at %s:\n%s", interaction.FullId, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05"), interaction.RawRequest))
-					builder.WriteString(fmt.Sprintf(":dart: [%s] (:flag-%s: *%s*) %s (HTTP) ```%s```", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, ip2country.GetCountry(interaction.RemoteAddress), interaction.FullId, modifiedResponse))
+					builder.WriteString(fmt.Sprintf(":dart: [%s] (:flag-%s: *%s*) %s (HTTP) ```%s```", interaction.Timestamp.Format("02/01/2006 15:04"), ip2country.GetCountry(interaction.RemoteAddress), interaction.RemoteAddress, interaction.FullId, modifiedResponse))
 					//builder.WriteString(fmt.Sprintf(":earth_americas:2 [%s] (*%s*) %s (HTTP) ```POSTn```", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId))
 
 					if cliOptions.Verbose {
