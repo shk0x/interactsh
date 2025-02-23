@@ -22,6 +22,7 @@ import (
 	fileutil "github.com/projectdiscovery/utils/file"
 	folderutil "github.com/projectdiscovery/utils/folder"
 	updateutils "github.com/projectdiscovery/utils/update"
+	"github.com/mostafa-asg/ip2country"
 )
 
 var (
@@ -31,6 +32,7 @@ var (
 
 func main() {
 	gologger.DefaultLogger.SetMaxLevel(levels.LevelVerbose)
+	ip2country.Load("./dbip-country.csv")
 
 	defaultOpts := client.DefaultOptions
 	cliOptions := &options.CLIClientOptions{}
@@ -190,7 +192,7 @@ func main() {
 			case "dns":
 				if noFilter || cliOptions.DNSOnly {
 //					builder.WriteString(fmt.Sprintf("[%s] DNS (%s)\t%s\t%s", interaction.FullId, interaction.QType, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05")))
-					builder.WriteString(fmt.Sprintf(":globe_with_meridians: [%s] (*%s*) %s (DNS %s)", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId, interaction.QType))
+					builder.WriteString(fmt.Sprintf(":globe_with_meridians:%s [%s] (*%s*) %s (DNS %s)",ip2country.GetCountry(interaction.RemoteAddress) ,interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId, interaction.QType))
 					if cliOptions.Verbose {
 						builder.WriteString(fmt.Sprintf("\n-----------\nDNS Request\n-----------\n\n%s\n\n------------\nDNS Response\n------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
 					}
