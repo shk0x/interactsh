@@ -32,7 +32,7 @@ var (
 
 func main() {
 	gologger.DefaultLogger.SetMaxLevel(levels.LevelVerbose)
-	ip2country.Load("./dbip-country.csv")
+	ip2country.Load("/home/hello/system/TOOLS/interactsh/dbip-country.csv")
 
 	defaultOpts := client.DefaultOptions
 	cliOptions := &options.CLIClientOptions{}
