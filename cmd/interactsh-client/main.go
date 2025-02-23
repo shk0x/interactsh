@@ -31,6 +31,7 @@ var (
 )
 
 func main() {
+	println("HOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAAHOLAAAAAAAAAAAAAAAAAAAAAA MUNDOOOOOOOOOOOOOO")
 	gologger.DefaultLogger.SetMaxLevel(levels.LevelVerbose)
 
 	defaultOpts := client.DefaultOptions
@@ -194,7 +195,7 @@ func main() {
 					ip2country.Load("/home/hello/system/TOOLS/interactsh/dbip-country.csv")
 					println(ip2country.GetCountry("179.60.64.48"))
 					println("************************************************")
-					builder.WriteString(fmt.Sprintf(":globe_with_meridians:flag-%s [%s] (*%s*) %s (DNS %s)",ip2country.GetCountry("179.60.64.48"), interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId, interaction.QType))
+					builder.WriteString(fmt.Sprintf(":globe_with_meridians: :flag-%s [%s] (*%s*) %s (DNS %s)","ip2country.GetCountry("+interaction.RemoteAddress+")", interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId, interaction.QType))
 					if cliOptions.Verbose {
 						builder.WriteString(fmt.Sprintf("\n-----------\nDNS Request\n-----------\n\n%s\n\n------------\nDNS Response\n------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
 					}
