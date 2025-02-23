@@ -32,7 +32,6 @@ var (
 
 func main() {
 	gologger.DefaultLogger.SetMaxLevel(levels.LevelVerbose)
-	ip2country.Load("/home/hello/system/TOOLS/interactsh/dbip-country.csv")
 
 	defaultOpts := client.DefaultOptions
 	cliOptions := &options.CLIClientOptions{}
@@ -192,6 +191,7 @@ func main() {
 			case "dns":
 				if noFilter || cliOptions.DNSOnly {
 //					builder.WriteString(fmt.Sprintf("[%s] DNS (%s)\t%s\t%s", interaction.FullId, interaction.QType, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05")))
+					ip2country.Load("/home/hello/system/TOOLS/interactsh/dbip-country.csv")
 					println(ip2country.GetCountry("179.60.64.48"))
 					println("************************************************")
 					builder.WriteString(fmt.Sprintf(":globe_with_meridians:flag-%s [%s] (*%s*) %s (DNS %s)",ip2country.GetCountry("179.60.64.48"), interaction.Timestamp.Format("02/01/2006 15:04"), interaction.RemoteAddress, interaction.FullId, interaction.QType))
