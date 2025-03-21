@@ -262,7 +262,7 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 	reflection := h.options.URLReflection(req.Host)
 	if stringsutil.HasPrefixI(req.URL.Path, "/") && h.staticHandler != nil {
 
-		req.URL.Path = "/"
+		req.URL.Path := "/"
 		fmt.Println("**********HasPrefixI**********: %s", req.URL.Path)
 		h.staticHandler.ServeHTTP(w, req)
 
