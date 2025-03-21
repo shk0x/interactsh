@@ -254,7 +254,7 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 	atomic.AddUint64(&h.options.Stats.Http, 1)
 
 	domain := extractServerDomain(h, req)
-	w.Header().Set("Server", domain)
+	w.Header().Set("Server", "NATRE CORP.")
 	if !h.options.NoVersionHeader {
 		w.Header().Set("X-Interactsh-Version", h.options.Version)
 	}
