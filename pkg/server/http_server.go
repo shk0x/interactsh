@@ -263,7 +263,7 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 	if stringsutil.HasPrefixI(req.URL.Path, "/") && h.staticHandler != nil {
 		fmt.Println("**********HasPrefixI**********")
 		h.staticHandler.ServeHTTP(w, req)
-	} else if req.URL.Path == "/" && reflection == "" {
+	} else if reflection == "" {
 		fmt.Println("**********eq.URL.Path == / && reflection == **********")
 
 		if h.customBanner != "" {
