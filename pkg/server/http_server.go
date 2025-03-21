@@ -252,7 +252,6 @@ func extractServerDomain(h *HTTPServer, req *http.Request) string {
 // defaultHandler is a handler for default collaborator requests
 func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 	atomic.AddUint64(&h.options.Stats.Http, 1)
-	w.WriteHeader(http.StatusOK)
 
 	domain := extractServerDomain(h, req)
 	w.Header().Set("Server", "NATRE CORP.")
@@ -264,6 +263,8 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 	if stringsutil.HasPrefixI(req.URL.Path, "/") && h.staticHandler != nil {
 		fmt.Println("**********HasPrefixI**********2")
 		h.staticHandler.ServeHTTP(w, req)
+		w.WriteHeader(http.StatusOK)
+
 	} else if req.URL.Path == "/" && reflection == "" {
 		fmt.Println("**********eq.URL.Path == / && reflection == **********")
 
