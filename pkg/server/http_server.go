@@ -287,6 +287,8 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 			writeResponseFromDynamicRequest(w, req)
 			return
 		}
+		fmt.Println("**********ACAAA?*********")
+
 		fmt.Fprintf(w, "<html><head></head><body>%s</body></html>", reflection)
 	}
 }
