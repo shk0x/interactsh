@@ -252,6 +252,7 @@ func extractServerDomain(h *HTTPServer, req *http.Request) string {
 // defaultHandler is a handler for default collaborator requests
 func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 	atomic.AddUint64(&h.options.Stats.Http, 1)
+	w.WriteHeader(http.StatusOK)
 
 	domain := extractServerDomain(h, req)
 	w.Header().Set("Server", "NATRE CORP.")
@@ -287,8 +288,6 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 			writeResponseFromDynamicRequest(w, req)
 			return
 		}
-		fmt.Println("**********ACAAA?*********")
-
 		fmt.Fprintf(w, "<html><head></head><body>%s</body></html>", reflection)
 	}
 }
