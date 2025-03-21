@@ -261,10 +261,8 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 
 	reflection := h.options.URLReflection(req.Host)
 	if stringsutil.HasPrefixI(req.URL.Path, "/") && h.staticHandler != nil {
-		fmt.Println("**********HasPrefixI**********2")
-		w.WriteHeader(http.StatusOK)
+		fmt.Println("**********HasPrefixI**********: ", req.URL.Path)
 		h.staticHandler.ServeHTTP(w, req)
-		fmt.Fprintf(w, "<html><head></head><body>%s</body></html>", reflection)
 
 	} else if req.URL.Path == "/" && reflection == "" {
 		fmt.Println("**********eq.URL.Path == / && reflection == **********")
@@ -290,6 +288,7 @@ func (h *HTTPServer) defaultHandler(w http.ResponseWriter, req *http.Request) {
 			writeResponseFromDynamicRequest(w, req)
 			return
 		}
+		fmt.Fprintf(w, "<html><head></head><body>%s</body></html>", reflection)
 	}
 }
 
