@@ -196,8 +196,8 @@ func main() {
 				if noFilter || cliOptions.DNSOnly {
 //					builder.WriteString(fmt.Sprintf("[%s] DNS (%s)\t%s\t%s", interaction.FullId, interaction.QType, interaction.RemoteAddress, interaction.Timestamp.Format("2006-01-02 15:04:05")))
 					ip2country.Load("/home/hello/system/TOOLS/interactsh/dbip-country.csv")
-					println(ip2country.GetCountry("179.60.64.48"))
-					println("************************************************")
+					//println(ip2country.GetCountry("179.60.64.48"))
+					//println("************************************************")
 					builder.WriteString(fmt.Sprintf(":globe_with_meridians: [%s] (:flag-%s: *%s*) %s (DNS %s)", interaction.Timestamp.Format("02/01/2006 15:04"), ip2country.GetCountry(interaction.RemoteAddress), interaction.RemoteAddress, interaction.FullId, interaction.QType))
 					if cliOptions.Verbose {
 						builder.WriteString(fmt.Sprintf("\n-----------\nDNS Request\n-----------\n\n%s\n\n------------\nDNS Response\n------------\n\n%s\n\n", interaction.RawRequest, interaction.RawResponse))
